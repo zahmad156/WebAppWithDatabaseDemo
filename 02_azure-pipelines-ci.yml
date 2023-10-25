@@ -44,13 +44,19 @@ jobs:
     displayName: 'PS : Add Project GUID'
     enabled: false
   
-  - task: SonarCloudPrepare@1
-    displayName: 'Prepare analysis on SonarCloud'
-    inputs:
-      SonarCloud: SonarCloud
-      organization: vprofile-projects-1001
-      projectKey: vprofile-projects-1001_webappwithdatabasedemo
+  # - task: SonarCloudPrepare@1
+  #   displayName: 'Prepare analysis on SonarCloud'
+  #   inputs:
+  #     SonarCloud: SonarCloud
+  #     organization: vprofile-projects-1001
+  #     projectKey: WebAppWithDatabaseDemo
   
+  - task: SonarQubePrepare@4
+    inputs:
+      SonarQube: 'sonarqube-connection' # The name of the service connection
+      projectKey: 'vprofile' # The key of the project in sonar server
+      projectName: 'vprofile' # The name of the project in sonar server
+
   - task: DotNetCoreCLI@2
     displayName: Build
     inputs:
