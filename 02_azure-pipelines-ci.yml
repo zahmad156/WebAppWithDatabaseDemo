@@ -51,11 +51,15 @@ jobs:
   #     organization: vprofile-projects-1001
   #     projectKey: WebAppWithDatabaseDemo
   
-  - task: SonarQubePrepare@4
+  # Replace the SonarCloudPrepare task with the SonarQubePrepare task and use the correct inputs
+  - task: SonarQubePrepare@5
+    displayName: 'Prepare analysis on SonarQube'
     inputs:
       SonarQube: 'sonarqube-connection' # The name of the service connection
-      projectKey: 'vprofile' # The key of the project in sonar server
-      projectName: 'vprofile' # The name of the project in sonar server
+      scannerMode: 'Other' # Choose 'Other' for Maven or Gradle projects
+      extraProperties: |
+        # Additional properties that will be passed to the scanner, 
+        # Put one key=value per line, example:sonar.exclusions=**/*.xml
 
   - task: DotNetCoreCLI@2
     displayName: Build
@@ -78,10 +82,18 @@ jobs:
       arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
       zipAfterPublish: True
   
-  - task: SonarCloudAnalyze@1
+  # - task: SonarCloudAnalyze@1
+  #   displayName: 'Run Code Analysis'
+  
+  # - task: SonarCloudPublish@1
+  #   displayName: 'Publish Quality Gate Result'
+
+  # Replace the SonarCloudAnalyze task with the SonarQubeAnalyze task 
+  - task: SonarQubeAnalyze@4
     displayName: 'Run Code Analysis'
   
-  - task: SonarCloudPublish@1
+  # Replace the SonarCloudPublish task with the SonarQubePublish task 
+  - task: SonarQubePublish@4
     displayName: 'Publish Quality Gate Result'
   
   - task: PublishBuildArtifacts@1
