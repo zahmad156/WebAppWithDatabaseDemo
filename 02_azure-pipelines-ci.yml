@@ -49,7 +49,7 @@ jobs:
     inputs:
       SonarCloud: SonarCloud
       organization: vprofile-projects-1001
-      projectKey: WebAppWithDatabaseDemo
+      projectKey: vprofile-projects-1001_webappwithdatabasedemo
   
   - task: DotNetCoreCLI@2
     displayName: Build
