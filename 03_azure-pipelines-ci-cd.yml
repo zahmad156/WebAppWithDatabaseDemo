@@ -207,7 +207,7 @@ stages:
     Database.Name: 'EmployeesDB'
     WebAppName: '$(Prefix)-$(Release.EnvironmentName)-$(UniqueId)-APP-001'
     WebAppNameUrl: 'https://$(WebAppName).azurewebsites.net/'
-    SqlServerName: '$(Prefix)-sql-$(Release.EnvironmentName)-$(UniqueId)-SQL-001'
+    SqlServerName: '$(Prefix)-sql-$(Release.EnvironmentName)-$(UniqueId)-sql-001'
     Prefix: 'tunis'
     Release.EnvironmentName: 'dev'
     UniqueId: '1280' #'$(Build.BuildId)'
