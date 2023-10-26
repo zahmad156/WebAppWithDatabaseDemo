@@ -284,7 +284,7 @@ stages:
       inputs:
         deploymentScope: 'Resource Group'
         azureResourceManagerConnection: 'azure-connection'
-        subscriptionId: '4b72ed90-7ca3-4e76-8d0f-31a2c0bee7a3'
+        subscriptionId: '77137674-fe7a-4acd-a187-3426ef738a8c'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '$(ResourceGroupName)'
         location: 'West Europe'
@@ -302,7 +302,7 @@ stages:
         ConnectedServiceNameARM: 'azure-connection'
         GenerateMethodParameterSetSelection: 'ResourceGroupName'
         ResourceGroupName: '$(ResourceGroupName)'
-        SubscriptionId: '4b72ed90-7ca3-4e76-8d0f-31a2c0bee7a3'
+        SubscriptionId: '77137674-fe7a-4acd-a187-3426ef738a8c'
         EnableGSSscan: true
 
   - job: Deploy_DEV
