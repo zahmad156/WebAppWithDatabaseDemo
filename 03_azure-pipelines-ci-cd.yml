@@ -52,9 +52,9 @@ stages:
         command: restore
         projects: '**/WebApp.csproj'
     
-    - task: WhiteSource Bolt@20
-      displayName: Scan Nuget Packages
-      enabled: ${{ parameters.runCompletePipeline }}
+    # - task: WhiteSource Bolt@20
+    #   displayName: Scan Nuget Packages
+    #   enabled: ${{ parameters.runCompletePipeline }}
 
     - task: PowerShell@2
       displayName: Prepare for Sonar Cloud
