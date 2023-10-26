@@ -205,7 +205,7 @@ stages:
     Database.Admin: 'houssem'
     Database.Password: '@Aa123456' # to be secured in Key Vault
     Database.Name: 'EmployeesDB'
-    WebAppName: '$(Prefix)-$(Release.EnvironmentName)-$(UniqueId)'
+    WebAppName: '$(Prefix)-$(Release.EnvironmentName)-$(UniqueId)-APP-001'
     WebAppNameUrl: 'https://$(WebAppName).azurewebsites.net/'
     SqlServerName: '$(Prefix)-sql-$(Release.EnvironmentName)-$(UniqueId)'
     Prefix: 'tunis'
