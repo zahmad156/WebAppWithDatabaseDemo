@@ -76,13 +76,27 @@ stages:
                 }
         workingDirectory: 'WebApp'
 
-    - task: SonarCloudPrepare@1
-      displayName: Prepare analysis on SonarCloud
+    # - task: SonarCloudPrepare@1
+    #   displayName: Prepare analysis on SonarCloud
+    #   enabled: ${{ parameters.runCompletePipeline }}
+    #   inputs:
+    #     SonarCloud: SonarCloud
+    #     organization: houssemdellai
+    #     projectKey: WebAppWithDatabaseDemo
+
+
+    - task: SonarQubePrepare@4
+      displayName: Prepare analysis on SonarQube
       enabled: ${{ parameters.runCompletePipeline }}
       inputs:
-        SonarCloud: SonarCloud
-        organization: houssemdellai
-        projectKey: WebAppWithDatabaseDemo
+       SonarQube: 'sonarqube-connection'
+       projectKey: 'Demo-Project'
+       projectName: 'Demo-Project'
+       projectVersion: '1.0'
+       extraProperties: |
+          # Additional properties that will be passed to the scanner, 
+          # Put one key=value per line, example:
+          # sonar.exclusions=**/*.bin
 
     - task: DotNetCoreCLI@2
       displayName: Build WebApp
