@@ -85,18 +85,18 @@ stages:
     #     projectKey: WebAppWithDatabaseDemo
 
 
-    - task: SonarQubePrepare@4
-      displayName: Prepare analysis on SonarQube
-      enabled: ${{ parameters.runCompletePipeline }}
-      inputs:
-       SonarQube: 'sonarqube-connection'
-       projectKey: 'Demo-Project'
-       projectName: 'Demo-Project'
-       projectVersion: '1.0'
-       extraProperties: |
-          # Additional properties that will be passed to the scanner, 
-          # Put one key=value per line, example:
-          # sonar.exclusions=**/*.bin
+    # - task: SonarQubePrepare@4
+    #   displayName: Prepare analysis on SonarQube
+    #   enabled: ${{ parameters.runCompletePipeline }}
+    #   inputs:
+    #    SonarQube: 'sonarqube-connection'
+    #    projectKey: 'Demo-Project'
+    #    projectName: 'Demo-Project'
+    #    projectVersion: '1.0'
+    #    extraProperties: |
+    #       # Additional properties that will be passed to the scanner, 
+    #       # Put one key=value per line, example:
+    #       # sonar.exclusions=**/*.bin
 
     - task: DotNetCoreCLI@2
       displayName: Build WebApp
@@ -127,12 +127,12 @@ stages:
     # - task: SonarCloudPublish@1
     #   displayName: Publish Quality Gate Result
     #   enabled: ${{ parameters.runCompletePipeline }}
-    - task: SonarQubeAnalyze@4
-      displayName: Run Code Analysis
-      enabled: ${{ parameters.runCompletePipeline }}
-    - task: SonarQubePublish@4
-      displayName: Publish Quality Gate Result
-      enabled: ${{ parameters.runCompletePipeline }}
+    # - task: SonarQubeAnalyze@4
+    #   displayName: Run Code Analysis
+    #   enabled: ${{ parameters.runCompletePipeline }}
+    # - task: SonarQubePublish@4
+    #   displayName: Publish Quality Gate Result
+    #   enabled: ${{ parameters.runCompletePipeline }}
 
     - task: PublishBuildArtifacts@1
       displayName: Publish Artifact (WebApp.zip)
